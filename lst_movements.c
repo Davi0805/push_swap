@@ -41,7 +41,7 @@ void stack_push(t_stack *src, t_stack *target)
 	{
 		target = ft_stacknew(src->content);
 		temp = src;
-		while (i < src_size)
+		while (i < src_size - 1)
 		{
 			stack_swap(temp);
 			temp = temp->next;

@@ -14,3 +14,18 @@ int	stack_size(t_stack *lst)
 	}
 	return (i);
 }
+
+t_stack	*last_stack(t_stack *lst)
+{
+	t_stack	*last;
+
+	last = lst;
+	while (lst)
+	{
+		if (last->next == NULL)
+			return (last);
+		else
+			last = last->next;
+	}
+	return (NULL);
+}
