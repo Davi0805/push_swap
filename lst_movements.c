@@ -8,6 +8,8 @@ void stack_swap(t_stack *target, int flag)
 	t_stack *second;
 	int swap;
 
+	if (stack_size(target) <= 1)
+		return;
 	swap = target->content;
 	second = target->next;
 	target->content = second->content;
@@ -92,7 +94,20 @@ void stack_push(t_stack **src, t_stack **target, int flag)
 		ft_printf("pb\n");
 }
 
+/* void stack_push(t_stack **src, t_stack **dest, int flag) {
+    if (!src || !*src) return;
 
+    t_stack *temp = *src;
+    *src = (*src)->next;
+    temp->next = *dest;
+    *dest = temp;
+
+    if (flag == PB) {
+        ft_printf("pb\n");
+    } else if (flag == PA) {
+        ft_printf("pa\n");
+    }
+} */
 
 void stack_rotate(t_stack *target, int flag)
 {
@@ -106,7 +121,6 @@ void stack_rotate(t_stack *target, int flag)
 	if (target_size == 0)
 		return;
 
-	/* ft_printf("target_size: %i\n", target_size); */
 	i = 0;
 	while (i < target_size - 1)
 	{
@@ -119,6 +133,31 @@ void stack_rotate(t_stack *target, int flag)
 	else if (flag == 7)
 		ft_printf("rb\n");
 }
+
+/* void stack_rotate(t_stack **target, int flag)
+{
+    if (!target || !*target || !(*target)->next)
+        return;
+
+    t_stack *first = *target;
+    t_stack *last = *target;
+
+    // Encontrar o último elemento da lista
+    while (last->next)
+        last = last->next;
+
+    // Mover o primeiro elemento para o final
+    *target = first->next;
+    first->next = NULL;
+    last->next = first;
+
+    // Imprimir a operação realizada
+    if (flag == 6)
+        ft_printf("ra\n");
+    else if (flag == 7)
+        ft_printf("rb\n");
+} */
+
 
 void stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
 {
@@ -179,4 +218,11 @@ void stack_reverse_rotate(t_stack **target, int flag)
 		ft_printf("rra\n");
 	else if (flag == 9)
 		ft_printf("rrb\n");
+}
+
+void stack_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
+{
+	stack_reverse_rotate(stack_a, QUIET);
+	stack_reverse_rotate(stack_b, QUIET);
+	ft_printf("rrr\n");
 }

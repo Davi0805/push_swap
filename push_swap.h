@@ -48,5 +48,8 @@ void stack_push(t_stack **src, t_stack **target, int flag);
 void stack_rotate(t_stack *target, int flag);
 void stack_rotate_both(t_stack *stack_a, t_stack *stack_b);
 void stack_reverse_rotate(t_stack **target, int flag);
+void stack_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
+void quicksort(t_stack **a, t_stack **b, int size);
+
 
 #endif

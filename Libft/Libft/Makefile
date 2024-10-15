@@ -1,8 +1,15 @@
+MAKEFLAGS += -s
+
 NAME = libft.a
 CC = gcc
 INCLUDE = libft.h
 FLAGS = -Wall -Wextra -Werror
 AR = ar rc
+
+GREEN = \033[0;32m
+YELLOW = \033[1;33m
+RED = \033[0;31m
+NC = \033[0m
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c \
@@ -21,18 +28,19 @@ BONUS_OBJ = $(BONUS_SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	$(CC)  $(FLAGS) -c $(SRCS)
-	$(AR)  $(NAME) $(OBJ)
+	@echo "# $(GREEN)Building Libft...$(NC)"
+	@$(CC)  $(FLAGS) -c $(SRCS)
+	@$(AR)  $(NAME) $(OBJ)
 
 bonus: $(NAME)
-	$(CC) $(FLAGS) -c $(BONUS_SRC)
-	$(AR) $(NAME) $(BONUS_OBJ)
+	@$(CC) $(FLAGS) -c $(BONUS_SRC)
+	@$(AR) $(NAME) $(BONUS_OBJ)
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
