@@ -2,6 +2,8 @@
 
 //Lembrar de modificar atoi que modifiquei para atol de volta para atoi e criar uma func apenas para atol
 
+// LEMBRAR DE MODIFICAR STRUCT 
+
 int main(int ac, char **av)
 {
     t_stack *stack_a;
@@ -28,25 +30,35 @@ int main(int ac, char **av)
         return (0);
     }
 
-    /* stack_a = stack_swap(stack_a); */
+    /* stack_a = stack_swap(stack_a, SWAP_A); */
 
-    stack_push(stack_a, &stack_b);
+    /* stack_push(stack_b, &stack_a, PA); */
+
+    /* stack_push(stack_a, &stack_b, PB);
+    stack_push(stack_a, &stack_b, PB);
+    stack_push(stack_a, &stack_b, PB); */
+
+    /* stack_swap_both(stack_a, stack_b); */
+
+    /* stack_rotate(stack_b, RB); */
+
+    /* stack_rotate_both(stack_a, stack_b); */
+
+    stack_reverse_rotate(stack_a);
 
     // TESTE STACK A
-    while (stack_a->next != NULL)
+    while (stack_a != NULL)
     {
         printf("STACK A: %i\n", stack_a->content);
         stack_a = stack_a->next;
     }
-    printf("STACK A: %i\n", stack_a->content);
     
     // TESTE STACK B
-/*     while (stack_b->next != NULL)
+    while (stack_b != NULL)
     {
         printf("STACK B: %i\n", stack_b->content);
         stack_b = stack_b->next;
-    } */
-    printf("STACK B: %i\n", stack_b->content);
+    }
 
     return (0);
 }

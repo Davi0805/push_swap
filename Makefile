@@ -14,7 +14,7 @@ $(NAME): $(LIBFTDIR)/$(LIBFTNAME)
 $(LIBFTDIR)/$(LIBFTNAME):
 		make -C $(LIBFTDIR)
 
-push_swap: $(NAME) main.o $(OBJS)
+push_swap: $(NAME) $(OBJS)
 		$(CC) $(FLAGS) -o push_swap $(OBJS) $(NAME)
 %.o: %.c
 		$(CC) $(FLAGS) -c $< -o $@
