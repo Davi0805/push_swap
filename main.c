@@ -44,7 +44,8 @@ int main(int ac, char **av)
 
     /* stack_rotate_both(stack_a, stack_b); */
 
-    stack_reverse_rotate(stack_a);
+    //STACK REVERSE ROTATE TA QUEBRADO
+    stack_reverse_rotate(&stack_a);
 
     // TESTE STACK A
     while (stack_a != NULL)
