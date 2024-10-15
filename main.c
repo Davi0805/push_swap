@@ -30,7 +30,7 @@ int main(int ac, char **av)
 
     /* stack_a = stack_swap(stack_a); */
 
-    stack_push(stack_a, stack_b);
+    stack_push(stack_a, &stack_b);
 
     // TESTE STACK A
     while (stack_a->next != NULL)
@@ -41,12 +41,12 @@ int main(int ac, char **av)
     printf("STACK A: %i\n", stack_a->content);
     
     // TESTE STACK B
-    while (stack_b->next != NULL)
+/*     while (stack_b->next != NULL)
     {
         printf("STACK B: %i\n", stack_b->content);
-        stack_a = stack_b->next;
-    }
-    printf("STACK B: %i\n", stack_a->content);
+        stack_b = stack_b->next;
+    } */
+    printf("STACK B: %i\n", stack_b->content);
 
     return (0);
 }

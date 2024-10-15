@@ -27,7 +27,7 @@ t_stack *stack_swap(t_stack *target)
 	return(target);
 }
 //ft_lstadd_front modificado
-void stack_push(t_stack *src, t_stack *target)
+void stack_push(t_stack *src, t_stack **target)
 {
 	int target_size;
 	int src_size;
@@ -35,17 +35,21 @@ void stack_push(t_stack *src, t_stack *target)
 	t_stack *temp;
 
 	i = 0;
-	target_size = stack_size(target);
+	target_size = stack_size(*target);
 	src_size = stack_size(src);
 	if (target_size == 0)
 	{
-		target = ft_stacknew(src->content);
+		*target = ft_stacknew(src->content);
 		temp = src;
-		while (i < src_size - 1)
+		while (i < src_size - 2)
 		{
 			stack_swap(temp);
 			temp = temp->next;
 			i++;
 		}
+		stack_swap(temp);
+/* 		free(temp->next->content); */
+		free(temp->next);
+		temp->next = NULL;
 	}
 }

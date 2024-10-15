@@ -22,6 +22,6 @@ int	stack_size(t_stack *lst);
 
 // MOVIMENTACAO
 t_stack *stack_swap(t_stack *target);
-void stack_push(t_stack *src, t_stack *target);
+void stack_push(t_stack *src, t_stack **target);
 
 #endif
