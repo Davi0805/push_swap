@@ -66,3 +66,16 @@ void	stack_add_front(t_stack **lst, t_stack *new)
 		*lst = new;
 	}
 }
+
+void free_stack(t_stack *target)
+{
+	t_stack *temp;
+
+	while(target != NULL)
+	{
+		temp = target;
+		target = target->next;
+		/* free(temp->content); */
+		free(temp);
+	}
+}

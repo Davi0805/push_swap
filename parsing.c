@@ -40,7 +40,7 @@ int equal_number(int ac, char **av)
 }
 
 // Caso seja varios argumentos
-t_stack *fill_from_av(int ac, char **av)
+/* t_stack *fill_from_av(int ac, char **av)
 {
     int i;
     t_stack *start;
@@ -58,4 +58,35 @@ t_stack *fill_from_av(int ac, char **av)
         stack = stack->next;
     }
     return (start);
+} */
+
+t_stack *fill_from_av(int argc, char **argv)
+{
+    t_stack *stack = NULL;
+    t_stack *new_node;
+    t_stack *current;
+    int i = 1;
+
+    while (i < argc)
+    {
+        new_node = ft_stacknew(ft_atoi(argv[i]));
+        if (!new_node)
+        {
+            free_stack(stack);
+            return NULL;
+        }
+        if (!stack)
+        {
+            stack = new_node;
+        }
+        else
+        {
+            current = stack;
+            while (current->next != NULL)
+                current = current->next;
+            current->next = new_node;
+        }
+        i++;
+    }
+    return stack;
 }

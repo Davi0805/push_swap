@@ -17,6 +17,9 @@
 #define RA 6
 #define RB 7
 
+#define RRA 8
+#define RRB 9
+
 
 
 
@@ -36,13 +39,14 @@ t_stack *fill_from_av(int ac, char **av);
 int	stack_size(t_stack *lst);
 void	stack_add_end(t_stack **lst, t_stack *new);
 void	stack_add_front(t_stack **lst, t_stack *new);
+void free_stack(t_stack *target);
 
 // MOVIMENTACAO
-t_stack *stack_swap(t_stack *target, int flag);
+void stack_swap(t_stack *target, int flag);
 void stack_swap_both(t_stack *stack_a, t_stack *stack_b);
-void stack_push(t_stack *src, t_stack **target, int flag);
+void stack_push(t_stack **src, t_stack **target, int flag);
 void stack_rotate(t_stack *target, int flag);
 void stack_rotate_both(t_stack *stack_a, t_stack *stack_b);
-void stack_reverse_rotate(t_stack **target);
+void stack_reverse_rotate(t_stack **target, int flag);
 
 #endif

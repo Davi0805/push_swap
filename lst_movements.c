@@ -3,7 +3,7 @@
 
 
 // CRIAR MOVIMENTO SS AO INVES DE ADAPTAR ESSA FUNC
-t_stack *stack_swap(t_stack *target, int flag)
+void stack_swap(t_stack *target, int flag)
 {
 	t_stack *second;
 	int swap;
@@ -18,7 +18,7 @@ t_stack *stack_swap(t_stack *target, int flag)
 	else if (flag == 2)
 		ft_printf("sb\n");
 
-	return(target);
+	/* return(target); */
 }
 
 void stack_swap_both(t_stack *stack_a, t_stack *stack_b)
@@ -42,7 +42,7 @@ void stack_swap_both(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("ss\n");
 }
 
-void stack_push(t_stack *src, t_stack **target, int flag)
+void stack_push(t_stack **src, t_stack **target, int flag)
 {
 	int target_size;
 	int src_size;
@@ -51,15 +51,15 @@ void stack_push(t_stack *src, t_stack **target, int flag)
 
 	i = 0;
 	target_size = stack_size(*target);
-	src_size = stack_size(src);
+	src_size = stack_size(*src);
 
 	// LEMBRAR DE ADICIONAR CONDICAO PARA CASO SRC ESTEJA VAZIA
 	if (src_size == 0)
 		return;
 	else if (target_size == 0)
 	{
-		*target = ft_stacknew(src->content);
-		temp = src;
+		*target = ft_stacknew((*src)->content);
+		temp = *src;
 		while (i < src_size - 2)
 		{
 			stack_swap(temp, QUIET);
@@ -67,14 +67,14 @@ void stack_push(t_stack *src, t_stack **target, int flag)
 			i++;
 		}
 		stack_swap(temp, QUIET);
-/* 		free(temp->next->content); */
 		free(temp->next);
 		temp->next = NULL;
+
 	}
 	else
 	{
-		stack_add_front(target, ft_stacknew(src->content));
-		temp = src;
+		stack_add_front(target, ft_stacknew((*src)->content));
+		temp = *src;
 		while (i < src_size - 2)
 		{
 			stack_swap(temp, QUIET);
@@ -82,7 +82,6 @@ void stack_push(t_stack *src, t_stack **target, int flag)
 			i++;
 		}
 		stack_swap(temp, QUIET);
-/* 		free(temp->next->content); */
 		free(temp->next);
 		temp->next = NULL;
 	}
@@ -92,6 +91,8 @@ void stack_push(t_stack *src, t_stack **target, int flag)
 	else if (flag == 5)
 		ft_printf("pb\n");
 }
+
+
 
 void stack_rotate(t_stack *target, int flag)
 {
@@ -153,7 +154,7 @@ void stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("rr\n");
 }
 
-void stack_reverse_rotate(t_stack **target)
+void stack_reverse_rotate(t_stack **target, int flag)
 {
 	int target_size;
 	int i;
@@ -173,4 +174,9 @@ void stack_reverse_rotate(t_stack **target)
 	/* free(temp->next->content); */
 	free(temp->next);
 	temp->next = NULL;
+	/* free(temp); */
+	if (flag == 8)
+		ft_printf("rra\n");
+	else if (flag == 9)
+		ft_printf("rrb\n");
 }

@@ -8,6 +8,8 @@ int main(int ac, char **av)
 {
     t_stack *stack_a;
     t_stack *stack_b;
+    t_stack *temp_a;
+    t_stack *temp_b;
 
     stack_a = NULL;
     stack_b = NULL;
@@ -30,9 +32,11 @@ int main(int ac, char **av)
         return (0);
     }
 
-    /* stack_a = stack_swap(stack_a, SWAP_A); */
 
-    /* stack_push(stack_b, &stack_a, PA); */
+    /* stack_a = stack_swap(stack_a, SWAP_A); */
+    /* stack_swap(stack_a, SWAP_A); */
+    /* stack_push(&stack_a, &stack_b, PA);
+    stack_push(&stack_a, &stack_b, PA); */
 
     /* stack_push(stack_a, &stack_b, PB);
     stack_push(stack_a, &stack_b, PB);
@@ -45,8 +49,10 @@ int main(int ac, char **av)
     /* stack_rotate_both(stack_a, stack_b); */
 
     //STACK REVERSE ROTATE TA QUEBRADO
-    stack_reverse_rotate(&stack_a);
+    stack_reverse_rotate(&stack_a, RRA);
+    stack_reverse_rotate(&stack_a, RRA);
 
+    temp_a = stack_a;
     // TESTE STACK A
     while (stack_a != NULL)
     {
@@ -54,12 +60,16 @@ int main(int ac, char **av)
         stack_a = stack_a->next;
     }
     
+    temp_b = stack_b;
     // TESTE STACK B
     while (stack_b != NULL)
     {
         printf("STACK B: %i\n", stack_b->content);
         stack_b = stack_b->next;
     }
+
+    free_stack(temp_a);
+    free_stack(temp_b);
 
     return (0);
 }
