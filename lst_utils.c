@@ -79,3 +79,13 @@ void free_stack(t_stack *target)
 		free(temp);
 	}
 }
+
+int is_sorted(t_stack *stack) {
+    while (stack && stack->next) {
+        if (stack->content > stack->next->content) {
+            return 0; // Not sorted
+        }
+        stack = stack->next;
+    }
+    return 1; // Sorted
+}
