@@ -52,9 +52,28 @@ int main(int ac, char **av)
         return (0);
     }
 
-    /* first_digit_sort(&stack_a, &stack_b); */
+    // RADIX
     first_digit_sort(&stack_a, &stack_b, stack_size(stack_a));
-    /* second_digit_sort(&stack_a, &stack_b, stack_size(stack_b)); */
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 1);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 2);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 3);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 4);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 5);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 6);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 7);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 8);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 9);
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    
 
     // TEMP PARA GUARDAR INICIO DA STACK PARA DAR FREE DPS
     temp_a = stack_a;

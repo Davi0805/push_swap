@@ -51,9 +51,10 @@ void stack_reverse_rotate(t_stack **target, int flag);
 void stack_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 //SORT
-/* void first_digit_sort(t_stack **stack_a, t_stack **stack_b); */
-void first_digit_sort(t_stack **stack_a, t_stack **stack_b, int size);
-void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size);
+void first_digit_sort(t_stack **src, t_stack **target, int size);
+// DEVOLVE PARA STACK A
+void send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size);
+void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift);
 
 
 #endif
