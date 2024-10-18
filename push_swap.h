@@ -41,6 +41,7 @@ void	stack_add_end(t_stack **lst, t_stack *new);
 void	stack_add_front(t_stack **lst, t_stack *new);
 void free_stack(t_stack *target);
 int is_sorted(t_stack *stack);
+t_stack	*last_stack(t_stack *lst);
 
 // MOVIMENTACAO
 void stack_swap(t_stack *target, int flag);
@@ -56,7 +57,7 @@ void first_digit_sort(t_stack **src, t_stack **target, int size);
 // DEVOLVE PARA STACK A
 void send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size);
 void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift);
-
+void sort_stack_b(t_stack **stack_b);
 
 
 #endif

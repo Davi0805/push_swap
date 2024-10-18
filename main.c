@@ -81,6 +81,7 @@ int main(int ac, char **av)
         } else {
             second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), bit_shifts);
         }
+        /* sort_stack_b(&stack_b); */
         send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
         bit_shifts++;
     }

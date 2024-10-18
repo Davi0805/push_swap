@@ -55,3 +55,16 @@ void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift
     } 
 }
 
+void sort_stack_b(t_stack **stack_b)
+{
+    t_stack *temp = NULL;
+
+    temp = last_stack(*stack_b);
+    if (temp->content < (*stack_b)->content && temp != NULL)
+    {
+        stack_rotate(*stack_b, RB);
+        /* temp = last_stack(*stack_b); */
+    }
+}
+
+
