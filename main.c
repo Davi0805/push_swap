@@ -39,7 +39,7 @@ int main(int ac, char **av)
     // VERIFICAR SPLIT PRIMEIRO
     if (ac == 1)
         return (1);
-    else if (parse_error(ac, av) == 1 || equal_number(ac, av) == 1)
+    else if ((parse_error(ac, av) == 1 || equal_number(ac, av) == 1) && ac != 2)
     {
         write(1, "Error\n", 6);
         return (1);
@@ -49,7 +49,8 @@ int main(int ac, char **av)
         stack_a = fill_from_av(ac, av);
     else if (ac == 2)
     {
-        printf("TU AINDA NAO IMPLEMENTOU O SPLIT CARA PALIDA\n");
+        /* printf("TU AINDA NAO IMPLEMENTOU O SPLIT CARA PALIDA\n"); */
+        stack_a = fill_from_split(av[1]);
         return (0);
     }
     

@@ -10,7 +10,7 @@ int parse_error(int ac, char **av)
     while (i < ac)
     {
         //CHECAGEM MAIOR QUE INT MAX
-        if (ft_atoi(av[i]) > 2147483647 || ft_atoi(av[i]) < -2147483648)
+        if (ft_atol(av[i]) > 2147483647 || ft_atol(av[i]) < -2147483648)
             return (1);
         // CHECAGEM POR ALGO QUE NAO SEJA DIGITO
         while(av[i][j] != '\0')
@@ -32,7 +32,7 @@ int equal_number(int ac, char **av)
     i = 1;
     while (i < ac - 1)
     {
-        if (ft_atoi(av[i]) == ft_atoi(av[i + 1]))
+        if (ft_atol(av[i]) == ft_atol(av[i + 1]))
             return (1);
         i++;
     }
@@ -69,7 +69,7 @@ t_stack *fill_from_av(int argc, char **argv)
 
     while (i < argc)
     {
-        new_node = ft_stacknew(ft_atoi(argv[i]));
+        new_node = ft_stacknew(ft_atol(argv[i]));
         if (!new_node)
         {
             free_stack(stack);
@@ -89,4 +89,18 @@ t_stack *fill_from_av(int argc, char **argv)
         i++;
     }
     return stack;
+}
+
+t_stack *fill_from_split(char *str)
+{
+    ft_printf("RODANDO SPLIT: %s\n", str);
+    t_stack *result = NULL;
+    char **args;
+    args = NULL;
+    args = ft_split(str, ' ');
+    if (args == NULL)
+        return (NULL);
+    for (int i = 0; i < 3; i++)
+        ft_printf("%s\n", args[i]);
+    return (result);
 }

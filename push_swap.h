@@ -32,6 +32,7 @@ typedef struct  s_stack
 
 int parse_error(int ac, char **av);
 int equal_number(int ac, char **av);
+t_stack *fill_from_split(char *str);
 
 // UTILIDADES PARA LINKED LISTS
 t_stack	*ft_stacknew(int content);
