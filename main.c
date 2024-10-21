@@ -52,36 +52,16 @@ int main(int ac, char **av)
         printf("TU AINDA NAO IMPLEMENTOU O SPLIT CARA PALIDA\n");
         return (0);
     }
-
-    // RADIX
-/*     first_digit_sort(&stack_a, &stack_b, stack_size(stack_a));
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 1);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 2);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 3);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 4);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 5);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 6);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 7);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 8);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-    second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), 9);
-    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b)); */
     
         while (bit_shifts < 32 && !is_sorted(stack_a)) {
         if (bit_shifts == 0) {
             first_digit_sort(&stack_a, &stack_b, stack_size(stack_a));
-        } else {
+        }
+        else
+        {
             second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), bit_shifts);
         }
-        /* sort_stack_b(stack_b); */
+        /* sort_stack_b(&stack_b); */
         send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
         bit_shifts++;
     }
@@ -90,20 +70,20 @@ int main(int ac, char **av)
     // TEMP PARA GUARDAR INICIO DA STACK PARA DAR FREE DPS
     temp_a = stack_a;
     // TESTE STACK A
-    while (stack_a != NULL)
+    /* while (stack_a != NULL)
     {
         printf("STACK A: %i\n", stack_a->content);
         stack_a = stack_a->next;
-    }
+    } */
     
     // TEMP PARA GUARDAR INICIO DA STACK PARA DAR FREE DPS
     temp_b = stack_b;
     // TESTE STACK B
-    while (stack_b != NULL)
+   /*  while (stack_b != NULL)
     {
         printf("STACK B: %i\n", stack_b->content);
         stack_b = stack_b->next;
-    }
+    } */
 
     free_stack(temp_a);
     free_stack(temp_b);

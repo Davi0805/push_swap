@@ -55,16 +55,22 @@ void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift
     } 
 }
 
-void sort_stack_b(t_stack *stack_b)
+void sort_stack_b(t_stack **stack_b)
 {
     t_stack *temp = NULL;
+    int i;
 
-    temp = last_stack(stack_b);
-    if (temp->content < stack_b->content && temp != NULL)
-    {
-        stack_rotate(stack_b, RB);
-        /* temp = last_stack(*stack_b); */
-    }
+    i = 0;
+
+    /* if (size < 2)
+        return ; */
+
+    temp = last_stack(*stack_b);
+    ft_printf("ULTIMA %i > PRIMEIRA %i\n", temp->content, (*stack_b)->content);
+    if (temp->content < (*stack_b)->content)
+        stack_reverse_rotate(stack_b, RRB);
+    temp = last_stack(*stack_b);
+    i++;
 }
 
 

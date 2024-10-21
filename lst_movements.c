@@ -202,23 +202,36 @@ void stack_reverse_rotate(t_stack **target, int flag)
 	temp = *target;
 	i = 0;
 	target_size = stack_size(*target);
-	/* ft_printf("target_size: %i\n", target_size); */
 	while (i < target_size - 2)
 	{
 		temp = temp->next;
 		i++;
 	}
 	stack_add_front(target, ft_stacknew(temp->next->content));
-	/* ft_printf("ULTIMO? : %i\n", temp->content); */
-	/* free(temp->next->content); */
 	free(temp->next);
 	temp->next = NULL;
-	/* free(temp); */
 	if (flag == 8)
 		ft_printf("rra\n");
 	else if (flag == 9)
 		ft_printf("rrb\n");
 }
+
+/* void stack_reverse_rotate(t_stack **target, int flag)
+{
+	int i;
+	t_stack *temp;
+
+	temp = last_stack(*target);
+	i = 0;
+	stack_add_front(target, ft_stacknew(temp->content));
+	free(temp);
+	temp = last_stack(*target);
+	temp->next = NULL;
+	if (flag == 8)
+		ft_printf("rra\n");
+	else if (flag == 9)
+		ft_printf("rrb\n");
+} */
 
 void stack_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
 {

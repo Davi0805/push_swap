@@ -57,7 +57,7 @@ void first_digit_sort(t_stack **src, t_stack **target, int size);
 // DEVOLVE PARA STACK A
 void send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size);
 void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift);
-void sort_stack_b(t_stack *stack_b);
+void sort_stack_b(t_stack **stack_b);
 
 
 #endif
