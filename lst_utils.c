@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 14:50:28 by dmelo-ca          #+#    #+#             */
+/*   Updated: 2024/10/22 14:54:48 by dmelo-ca         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // FUNC PARA INICIAR VARIAVEIS DA STRUCT E PREENCHER COM INT
@@ -65,27 +77,4 @@ void	stack_add_front(t_stack **lst, t_stack *new)
 		new->next = *lst;
 		*lst = new;
 	}
-}
-
-void free_stack(t_stack *target)
-{
-	t_stack *temp;
-
-	while(target != NULL)
-	{
-		temp = target;
-		target = target->next;
-		/* free(temp->content); */
-		free(temp);
-	}
-}
-
-int is_sorted(t_stack *stack) {
-    while (stack && stack->next) {
-        if (stack->content > stack->next->content) {
-            return 0; // Not sorted
-        }
-        stack = stack->next;
-    }
-    return 1; // Sorted
 }

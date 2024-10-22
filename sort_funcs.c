@@ -1,76 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_funcs.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 16:53:09 by dmelo-ca          #+#    #+#             */
+/*   Updated: 2024/10/22 17:25:56 by dmelo-ca         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void first_digit_sort(t_stack **src, t_stack **target, int size)
+void	first_digit_sort(t_stack **src, t_stack **target, int size)
 {
-    int i = 0;
+	int	i;
 
-    while (i < size) 
-    {
-        if ((*src)->content & 1)
-            stack_rotate(*src, RA); 
-        else
-            stack_push(src, target, PB);
-    i++;
-    }
+	i = 0;
+	while (i < size)
+	{
+		if ((*src)->content & 1)
+			stack_rotate(*src, RA);
+		else
+			stack_push(src, target, PB);
+		i++;
+	}
 }
 
-void send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size)
+void	send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size)
 {
-    int i = 0;
-/*     t_stack *temp;
+	int	i;
 
-    temp = *stack_b;
-    while(i < size)
-    {
-        if ((temp->content << 1) & 1)
-            stack_rotate(temp, RB);
-        temp = temp->next;
-        i++;
-    } */
-    i = 0;
-    while (i < size)
-    {
-        stack_push(stack_b, stack_a, PA);
-        i++;
-    }
-    free(*stack_b);
-    *stack_b = NULL;
-
-    i = 0;
+	i = 0;
+	while (i < size)
+	{
+		stack_push(stack_b, stack_a, PA);
+		i++;
+	}
+	free(*stack_b);
+	*stack_b = NULL;
 }
 
-void second_digit_sort(t_stack **stack_a, t_stack **stack_b, int size, int shift)
+void	second_digit_sort(t_stack **stack_a, t_stack **stack_b,
+		int size, int shift)
 {
-    int i;
+	int	i;
 
-    i = 0;
-
-    while (i < size) 
-    {
-        if (((*stack_a)->content >> shift) & 1)
-            stack_rotate(*stack_a, RA); 
-        else
-            stack_push(stack_a, stack_b, PB);
-    i++;
-    } 
+	i = 0;
+	while (i < size)
+	{
+		if (((*stack_a)->content >> shift) & 1)
+			stack_rotate(*stack_a, RA);
+		else
+			stack_push(stack_a, stack_b, PB);
+		i++;
+	}
 }
-
-void sort_stack_b(t_stack **stack_b)
-{
-    t_stack *temp = NULL;
-    int i;
-
-    i = 0;
-
-    /* if (size < 2)
-        return ; */
-
-    temp = last_stack(*stack_b);
-    ft_printf("ULTIMA %i > PRIMEIRA %i\n", temp->content, (*stack_b)->content);
-    if (temp->content < (*stack_b)->content)
-        stack_reverse_rotate(stack_b, RRB);
-    temp = last_stack(*stack_b);
-    i++;
-}
-
-

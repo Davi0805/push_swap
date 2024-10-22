@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 16:50:11 by dmelo-ca          #+#    #+#             */
+/*   Updated: 2024/10/22 16:50:12 by dmelo-ca         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 
@@ -35,8 +47,6 @@ int main(int ac, char **av)
     stack_a = NULL;
     stack_b = NULL;
 
-    // LEMBRAR DE IMPLEMENTAR CHECAGEM EM CASO DE 1 STRING DE ARGUMENTO COM TODOS OS NUMEROS
-    // VERIFICAR SPLIT PRIMEIRO
     if (ac == 1)
         return (1);
     else if ((parse_error(ac, av) == 1 || equal_number(ac, av) == 1) && ac != 2)
@@ -51,33 +61,31 @@ int main(int ac, char **av)
     {
         /* printf("TU AINDA NAO IMPLEMENTOU O SPLIT CARA PALIDA\n"); */
         stack_a = fill_from_split(av[1]);
-        return (0);
+        if (stack_a == NULL)
+            return (1);
     }
-    
-        while (bit_shifts < 32 && !is_sorted(stack_a)) {
-        if (bit_shifts == 0) {
-            first_digit_sort(&stack_a, &stack_b, stack_size(stack_a));
-        }
-        else
-        {
-            second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), bit_shifts);
-        }
-        /* sort_stack_b(&stack_b); */
-        send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
-        bit_shifts++;
-    }
-    
 
-    // TEMP PARA GUARDAR INICIO DA STACK PARA DAR FREE DPS
+    while (bit_shifts < 32 && !is_sorted(stack_a)) {
+    if (bit_shifts == 0) {
+        first_digit_sort(&stack_a, &stack_b, stack_size(stack_a));
+    }
+    else
+    {
+        second_digit_sort(&stack_a, &stack_b, stack_size(stack_a), bit_shifts);
+    }
+    send_back_to_a(&stack_a, &stack_b, stack_size(stack_b));
+    bit_shifts++;
+    }
+
+
     temp_a = stack_a;
     // TESTE STACK A
-    /* while (stack_a != NULL)
+/*     while (stack_a != NULL)
     {
         printf("STACK A: %i\n", stack_a->content);
         stack_a = stack_a->next;
     } */
-    
-    // TEMP PARA GUARDAR INICIO DA STACK PARA DAR FREE DPS
+
     temp_b = stack_b;
     // TESTE STACK B
    /*  while (stack_b != NULL)

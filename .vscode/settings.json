@@ -1,5 +1,15 @@
 {
+    "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "push_swap.h": "c"
-    }
+		"libft.h": "c",
+		"stdlib.h": "c",
+		"get_next_line.h": "c"
+	},
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.renderWhitespace": "all",
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"makefile.configureOnOpen": false
 }
