@@ -6,7 +6,7 @@
 /*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:58:55 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/22 17:23:49 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:51:01 by dmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ t_stack	*fill_from_split(char *str)
 	stack = NULL;
 	argv = NULL;
 	argv = ft_split(str, ' ');
-	if (argv == NULL || ft_split_error_check(argv) == 1 || ft_split_parse_error(argv) == 1)
+	if (argv == NULL || ft_split_error_check(argv) == 1
+		|| ft_split_parse_error(argv) == 1)
 	{
 		write(1, "Error\n", 6);
 		return (NULL);
