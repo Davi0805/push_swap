@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:09 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 21:20:24 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 22:15:32 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	int	length_a;
 	int	bit_shifts;
 
+	bit_needed = 0;
 	bit_shifts = -1;
 	length_a = stack_size(*stack_a);
 	while (length_a > 1 && ++bit_needed)
