@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:59:08 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 13:21:36 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:00:24 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 }					t_stack;
-
 
 int		parse_error(int ac, char **av);
 int		equal_number(int ac, char **av);
@@ -68,8 +67,11 @@ void	second_digit_sort(t_stack **stack_a, t_stack **stack_b,
 void	sort_stack_b(t_stack **stack_b);
 
 void	sort(t_stack **stack_a, t_stack **stack_b);
-void	sort_b(t_stack **stack_a, t_stack **stack_b, int bit_needed, int bit_shifts);
+void	sort_b(t_stack **stack_a, t_stack **stack_b,
+			int bit_needed, int bit_shifts);
 void	replace_with_index(t_stack *stack, int size);
 void	three_num(t_stack **stack);
+void	four_five_num(t_stack **stack, t_stack **stack_b);
+int		get_median_value(t_stack *stack);
 
 #endif

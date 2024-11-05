@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:09 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 12:32:55 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:10:28 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void	send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size)
 	*stack_b = NULL;
 }
 
-void	sort_b(t_stack **stack_a, t_stack **stack_b, int bit_needed, int bit_shifts)
+void	sort_b(t_stack **stack_a, t_stack **stack_b,
+		int bit_needed, int bit_shifts)
 {
-	int length_b;
+	int	length_b;
 
 	length_b = stack_size(*stack_b);
 	while (bit_shifts <= bit_needed && length_b-- && !is_sorted(*stack_a))
@@ -44,18 +45,18 @@ void	sort_b(t_stack **stack_a, t_stack **stack_b, int bit_needed, int bit_shifts
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int bit_needed;
-	int length_a;
-	int bit_shifts;
+	int	bit_needed;
+	int	length_a;
+	int	bit_shifts;
 
 	bit_shifts = -1;
 	length_a = stack_size(*stack_a);
-	while(length_a > 1 && ++bit_needed)
+	while (length_a > 1 && ++bit_needed)
 		length_a /= 2;
 	while (++bit_shifts <= bit_needed)
 	{
 		length_a = stack_size(*stack_a);
-		while(length_a-- && !is_sorted(*stack_a))
+		while (length_a-- && !is_sorted(*stack_a))
 		{
 			if ((((*stack_a)->content) >> bit_shifts) & 1)
 				stack_rotate(*stack_a, RA);
@@ -69,7 +70,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 
 void	replace_with_index(t_stack *stack, int size)
 {
-	t_stack *current;
+	t_stack	*current;
 	int		*index_array;
 	int		index;
 	int		i;
@@ -98,3 +99,4 @@ void	replace_with_index(t_stack *stack, int size)
 	}
 	free(index_array);
 }
+

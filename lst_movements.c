@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:11:10 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 13:08:45 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 20:52:50 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,20 @@ void	stack_swap_both(t_stack *stack_a, t_stack *stack_b)
 		ft_printf("pb\n");
 } */
 
-void stack_push(t_stack **src, t_stack **dest, int flag) {
-    if (!src || !*src) return;
+void	stack_push(t_stack **src, t_stack **dest, int flag)
+{
+	t_stack	*temp;
 
-    t_stack *temp = *src;
-    *src = (*src)->next;
-    temp->next = *dest;
-    *dest = temp;
-
-    if (flag == PB) {
-        ft_printf("pb\n");
-    } else if (flag == PA) {
-        ft_printf("pa\n");
-    }
+	if (!src || !*src)
+		return ;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dest;
+	*dest = temp;
+	if (flag == PB)
+		ft_printf("pb\n");
+	else if (flag == PA)
+		ft_printf("pa\n");
 }
 
 void	stack_rotate(t_stack *target, int flag)
@@ -128,57 +129,3 @@ void	stack_rotate(t_stack *target, int flag)
 	else if (flag == 7)
 		ft_printf("rb\n");
 }
-
-/* void stack_rotate(t_stack **target, int flag)
-{
-    if (!target || !*target || !(*target)->next)
-        return;
-
-    t_stack *first = *target;
-    t_stack *last = *target;
-
-    // Encontrar o último elemento da lista
-    while (last->next)
-        last = last->next;
-
-    // Mover o primeiro elemento para o final
-    *target = first->next;
-    first->next = NULL;
-    last->next = first;
-
-    // Imprimir a operação realizada
-    if (flag == 6)
-        ft_printf("ra\n");
-    else if (flag == 7)
-        ft_printf("rb\n");
-} */
-
-/* void	stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
-{
-	int		stack_a_size;
-	int		stack_b_size;
-	int		i;
-	t_stack	*temp;
-
-	temp = stack_a;
-	stack_a_size = stack_size(stack_a);
-	stack_b_size = stack_size(stack_b);
-	if (stack_a_size == 0 || stack_b_size == 0)
-		return ;
-	i = 0;
-	while (i < stack_a_size - 1)
-	{
-		stack_swap(temp, QUIET);
-		temp = temp->next;
-		i++;
-	}
-	temp = stack_b;
-	i = 0;
-	while (i < stack_b_size - 1)
-	{
-		stack_swap(temp, QUIET);
-		temp = temp->next;
-		i++;
-	}
-	ft_printf("rr\n");
-} */

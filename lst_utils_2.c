@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:53:48 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/04 17:37:00 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 20:48:26 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	free_stack(t_stack *target)
 
 int	is_sorted(t_stack *stack)
 {
-	t_stack *current = stack;
+	t_stack	*current;
 
+	current = stack;
 	while (current && current->next)
 	{
 		if (current->content > current->next->content)

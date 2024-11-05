@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/05 20:55:53 by davi              #+#    #+#             */
+/*   Updated: 2024/11/05 20:59:03 by davi             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	three_num(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *last;
+	t_stack	*current;
+	t_stack	*last;
 
 	current = *stack;
 	last = last_stack(*stack);
@@ -18,27 +30,43 @@ void	three_num(t_stack **stack)
 		stack_swap(*stack, SWAP_A);
 }
 
-
-/* void	sort_four_to_five_elements(t_stacks *s)
+void	four_five_num(t_stack **stack_a, t_stack **stack_b)
 {
-	while (s->b_size <= 1)
+	while (stack_size(*stack_b) <= 1)
 	{
-		if (s->a[0] == 0 || s->a[0] == 1)
-			push("pb", s);
+		if ((*stack_a)->content == 0 || (*stack_a)->content == 1)
+			stack_push(stack_a, stack_b, PB);
 		else
-			rotate(s->a, s->a_size, "up", "a");
+			stack_rotate(*stack_a, RA);
 	}
-	if (s->b[0] == 0)
-		swap("sb", s->b, s->b_size);
-	if (s->a[2] != 4)
+	if ((*stack_b)->content == 0)
+		stack_swap(*stack_b, SWAP_B);
+	if (get_median_value(*stack_a) != 4)
 	{
-		if (s->a[0] == 4)
-			rotate(s->a, s->a_size, "up", "a");
+		if ((*stack_a)->content == 4)
+			stack_rotate(*stack_a, RA);
 		else
-			rotate(s->a, s->a_size, "down", "a");
+			stack_reverse_rotate(stack_a, RRA);
 	}
-	if (s->a[0] > s->a[1])
-		swap("sa", s->a, s->a_size);
-	push("pa", s);
-	push("pa", s);
-} */
+	if ((*stack_a)->content > (*stack_a)->next->content)
+		stack_swap(*stack_a, SWAP_A);
+	stack_push(stack_b, stack_a, PA);
+	stack_push(stack_b, stack_a, PA);
+}
+
+int	get_median_value(t_stack *stack)
+{
+	int		i;
+	t_stack	*cur;
+
+	cur = stack;
+	i = 0;
+	if (stack_size(stack) < 3)
+		return (-1);
+	while (i != 2)
+	{
+		cur = cur->next;
+		i++;
+	}
+	return (cur->content);
+}

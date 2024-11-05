@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:50:11 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 13:21:45 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:01:38 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ int	main(int ac, char **av)
 			return (1);
 	}
 	replace_with_index(stack_a, stack_size(stack_a));
-
 	if (stack_size(stack_a) == 3)
 		three_num(&stack_a);
 	else if (stack_size(stack_a) == 4 || stack_size(stack_a) == 5)
-		ft_printf("CALMA\n");
+		four_five_num(&stack_a, &stack_b);
 	else
 		sort(&stack_a, &stack_b);
-
 	temp_a = stack_a;
 	temp_b = stack_b;
 	free_stack(temp_a);
