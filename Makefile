@@ -6,7 +6,7 @@ LIBFTNAME = libftprintf.a
 LIBFTDIR = ./Libft
 FLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
-SRCS = main.c parsing.c lst_movements.c lst_movements_2.c lst_utils.c sort_funcs.c lst_utils_2.c Error.c\
+SRCS = main.c parsing.c lst_movements.c lst_movements_2.c lst_utils.c sort_funcs.c lst_utils_2.c Error.c sort_utils.c\
 
 GREEN = \033[0;32m
 YELLOW = \033[1;33m

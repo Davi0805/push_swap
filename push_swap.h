@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:59:08 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 10:27:27 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 13:21:36 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	sort_stack_b(t_stack **stack_b);
 
 void	sort(t_stack **stack_a, t_stack **stack_b);
 void	sort_b(t_stack **stack_a, t_stack **stack_b, int bit_needed, int bit_shifts);
-void	replace_with_index(t_stack *stack);
+void	replace_with_index(t_stack *stack, int size);
+void	three_num(t_stack **stack);
 
 #endif
