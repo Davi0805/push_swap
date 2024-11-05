@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:53:48 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/22 14:58:44 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:37:00 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ void	free_stack(t_stack *target)
 
 int	is_sorted(t_stack *stack)
 {
-	while (stack && stack->next)
+	t_stack *current = stack;
+
+	while (current && current->next)
 	{
-		if (stack->content > stack->next->content)
+		if (current->content > current->next->content)
 			return (0);
-		stack = stack->next;
+		current = current->next;
 	}
 	return (1);
 }

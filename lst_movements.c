@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_movements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:11:10 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/22 15:46:26 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:25:27 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	stack_swap_both(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("ss\n");
 }
 
-void	stack_push(t_stack **src, t_stack **target, int flag)
+/* void	stack_push(t_stack **src, t_stack **target, int flag)
 {
 	int		target_size;
 	int		src_size;
@@ -89,9 +89,9 @@ void	stack_push(t_stack **src, t_stack **target, int flag)
 		ft_printf("pa\n");
 	else if (flag == 5)
 		ft_printf("pb\n");
-}
+} */
 
-/* void stack_push(t_stack **src, t_stack **dest, int flag) {
+void stack_push(t_stack **src, t_stack **dest, int flag) {
     if (!src || !*src) return;
 
     t_stack *temp = *src;
@@ -104,7 +104,7 @@ void	stack_push(t_stack **src, t_stack **target, int flag)
     } else if (flag == PA) {
         ft_printf("pa\n");
     }
-} */
+}
 
 void	stack_rotate(t_stack *target, int flag)
 {
@@ -153,7 +153,7 @@ void	stack_rotate(t_stack *target, int flag)
         ft_printf("rb\n");
 } */
 
-void	stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
+/* void	stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
 {
 	int		stack_a_size;
 	int		stack_b_size;
@@ -181,4 +181,4 @@ void	stack_rotate_both(t_stack *stack_a, t_stack *stack_b)
 		i++;
 	}
 	ft_printf("rr\n");
-}
+} */

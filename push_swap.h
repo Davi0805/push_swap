@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:59:08 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/22 15:10:19 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/11/05 10:27:27 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 }					t_stack;
+
 
 int		parse_error(int ac, char **av);
 int		equal_number(int ac, char **av);
@@ -65,5 +66,9 @@ void	send_back_to_a(t_stack **stack_a, t_stack **stack_b, int size);
 void	second_digit_sort(t_stack **stack_a, t_stack **stack_b,
 			int size, int shift);
 void	sort_stack_b(t_stack **stack_b);
+
+void	sort(t_stack **stack_a, t_stack **stack_b);
+void	sort_b(t_stack **stack_a, t_stack **stack_b, int bit_needed, int bit_shifts);
+void	replace_with_index(t_stack *stack);
 
 #endif

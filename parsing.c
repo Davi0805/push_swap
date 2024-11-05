@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:58:55 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/23 16:51:01 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:20:54 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@
     }
     return (start);
 } */
+
+void	ft_free_split(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i] != NULL)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
 
 t_stack	*fill_from_av(int argc, char **argv)
 {
@@ -101,5 +114,6 @@ t_stack	*fill_from_split(char *str)
 		}
 		i++;
 	}
+	ft_free_split(argv);
 	return (stack);
 }
