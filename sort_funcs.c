@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:53:09 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 21:10:28 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:20:24 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,30 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	send_back_to_a(stack_a, stack_b, stack_size(*stack_b));
 }
 
+void	populate_stack_w_index(t_stack *stack, int *index_array, int size)
+{
+	int	index;
+	int	i;
+
+	while (stack)
+	{
+		i = 0;
+		index = 0;
+		while (i < size)
+		{
+			if (index_array[i] < stack->content)
+				index++;
+			i++;
+		}
+		stack->content = index;
+		stack = stack->next;
+	}
+}
+
 void	replace_with_index(t_stack *stack, int size)
 {
 	t_stack	*current;
 	int		*index_array;
-	int		index;
 	int		i;
 
 	i = 0;
@@ -84,19 +103,6 @@ void	replace_with_index(t_stack *stack, int size)
 		current = current->next;
 	}
 	current = stack;
-	while (current)
-	{
-		index = 0;
-		i = 0;
-		while (i < size)
-		{
-			if (index_array[i] < current->content)
-				index++;
-			i++;
-		}
-		current->content = index;
-		current = current->next;
-	}
+	populate_stack_w_index(current, index_array, size);
 	free(index_array);
 }
-

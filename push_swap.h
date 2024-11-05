@@ -6,7 +6,7 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:59:08 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 21:00:24 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:46:53 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	replace_with_index(t_stack *stack, int size);
 void	three_num(t_stack **stack);
 void	four_five_num(t_stack **stack, t_stack **stack_b);
 int		get_median_value(t_stack *stack);
+t_stack	*parse_setup(int ac, char **av);
 
 #endif

@@ -6,32 +6,11 @@
 /*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:58:55 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/04 15:20:54 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/05 21:54:52 by davi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// Caso seja varios argumentos
-/* t_stack *fill_from_av(int ac, char **av)
-{
-    int i;
-    t_stack *start;
-    t_stack *stack;
-
-    i = 1;
-    stack = ft_stacknew((int)ft_atoi(av[i]));
-
-    start = stack;
-
-    while(i < ac - 1)
-    {
-        i++;
-        stack->next = ft_stacknew((int)ft_atoi(av[i]));
-        stack = stack->next;
-    }
-    return (start);
-} */
 
 void	ft_free_split(char **array)
 {
@@ -58,11 +37,6 @@ t_stack	*fill_from_av(int argc, char **argv)
 	while (i < argc)
 	{
 		new_node = ft_stacknew(ft_atol(argv[i]));
-		if (!new_node)
-		{
-			free_stack(stack);
-			return (NULL);
-		}
 		if (!stack)
 			stack = new_node;
 		else
@@ -77,15 +51,37 @@ t_stack	*fill_from_av(int argc, char **argv)
 	return (stack);
 }
 
+t_stack	*populate_stack(char **argv)
+{
+	int		i;
+	t_stack	*stack;
+	t_stack	*cur;
+	t_stack	*new_node;
+
+	i = 0;
+	stack = NULL;
+	while (argv[i] != NULL)
+	{
+		new_node = ft_stacknew(ft_atol(argv[i]));
+		if (!stack)
+			stack = new_node;
+		else
+		{
+			cur = stack;
+			while (cur->next != NULL)
+				cur = cur->next;
+			cur->next = new_node;
+		}
+		i++;
+	}
+	return (stack);
+}
+
 t_stack	*fill_from_split(char *str)
 {
 	t_stack	*stack;
-	t_stack	*current;
-	t_stack	*new;
 	char	**argv;
-	int		i;
 
-	i = 0;
 	stack = NULL;
 	argv = NULL;
 	argv = ft_split(str, ' ');
@@ -95,25 +91,29 @@ t_stack	*fill_from_split(char *str)
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
-	while (argv[i] != NULL)
-	{
-		new = ft_stacknew(ft_atol(argv[i]));
-		if (!new)
-		{
-			free_stack(stack);
-			return (NULL);
-		}
-		if (!stack)
-			stack = new;
-		else
-		{
-			current = stack;
-			while (current->next != NULL)
-				current = current->next;
-			current->next = new;
-		}
-		i++;
-	}
+	stack = populate_stack(argv);
 	ft_free_split(argv);
 	return (stack);
+}
+
+t_stack	*parse_setup(int ac, char **av)
+{
+	t_stack	*stack_a;
+
+	if (ac == 1)
+		return (NULL);
+	else if ((parse_error(ac, av) == 1 || equal_number(ac, av) == 1) && ac != 2)
+	{
+		write(1, "Error\n", 6);
+		return (NULL);
+	}
+	if (ac > 2)
+		stack_a = fill_from_av(ac, av);
+	else if (ac == 2)
+	{
+		stack_a = fill_from_split(av[1]);
+		if (stack_a == NULL)
+			return (NULL);
+	}
+	return (stack_a);
 }
