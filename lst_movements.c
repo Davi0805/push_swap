@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_movements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:11:10 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 20:52:50 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/07 14:02:52 by dmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,68 +28,6 @@ void	stack_swap(t_stack *target, int flag)
 	else if (flag == 2)
 		ft_printf("sb\n");
 }
-
-void	stack_swap_both(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*second;
-	int		swap;
-
-	swap = stack_a->content;
-	second = stack_a->next;
-	stack_a->content = second->content;
-	second->content = swap;
-	swap = stack_b->content;
-	second = stack_b->next;
-	stack_b->content = second->content;
-	second->content = swap;
-	ft_printf("ss\n");
-}
-
-/* void	stack_push(t_stack **src, t_stack **target, int flag)
-{
-	int		target_size;
-	int		src_size;
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	target_size = stack_size(*target);
-	src_size = stack_size(*src);
-	if (src_size == 0)
-		return ;
-	else if (target_size == 0)
-	{
-		*target = ft_stacknew((*src)->content);
-		temp = *src;
-		while (i < src_size - 2)
-		{
-			stack_swap(temp, QUIET);
-			temp = temp->next;
-			i++;
-		}
-		stack_swap(temp, QUIET);
-		free(temp->next);
-		temp->next = NULL;
-	}
-	else
-	{
-		stack_add_front(target, ft_stacknew((*src)->content));
-		temp = *src;
-		while (i < src_size - 2)
-		{
-			stack_swap(temp, QUIET);
-			temp = temp->next;
-			i++;
-		}
-		stack_swap(temp, QUIET);
-		free(temp->next);
-		temp->next = NULL;
-	}
-	if (flag == 4)
-		ft_printf("pa\n");
-	else if (flag == 5)
-		ft_printf("pb\n");
-} */
 
 void	stack_push(t_stack **src, t_stack **dest, int flag)
 {
@@ -128,4 +66,27 @@ void	stack_rotate(t_stack *target, int flag)
 		ft_printf("ra\n");
 	else if (flag == 7)
 		ft_printf("rb\n");
+}
+
+void	stack_reverse_rotate(t_stack **target, int flag)
+{
+	int		target_size;
+	int		i;
+	t_stack	*temp;
+
+	temp = *target;
+	i = 0;
+	target_size = stack_size(*target);
+	while (i < target_size - 2)
+	{
+		temp = temp->next;
+		i++;
+	}
+	stack_add_front(target, ft_stacknew(temp->next->content));
+	free(temp->next);
+	temp->next = NULL;
+	if (flag == 8)
+		ft_printf("rra\n");
+	else if (flag == 9)
+		ft_printf("rrb\n");
 }

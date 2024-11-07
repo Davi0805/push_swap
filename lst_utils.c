@@ -6,7 +6,7 @@
 /*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:50:28 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/10/22 14:54:48 by dmelo-ca         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:50:25 by dmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,21 +53,6 @@ t_stack	*last_stack(t_stack *lst)
 			last = last->next;
 	}
 	return (NULL);
-}
-
-void	stack_add_end(t_stack **lst, t_stack *new)
-{
-	t_stack	*temp;
-
-	if (!new)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	temp = last_stack(*lst);
-	temp->next = new;
 }
 
 void	stack_add_front(t_stack **lst, t_stack *new)

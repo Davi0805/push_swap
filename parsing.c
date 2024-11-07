@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:58:55 by dmelo-ca          #+#    #+#             */
-/*   Updated: 2024/11/05 21:54:52 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/07 15:13:05 by dmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_stack	*fill_from_split(char *str)
 	if (argv == NULL || ft_split_error_check(argv) == 1
 		|| ft_split_parse_error(argv) == 1)
 	{
+		ft_free_split(argv);
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
@@ -100,6 +101,7 @@ t_stack	*parse_setup(int ac, char **av)
 {
 	t_stack	*stack_a;
 
+	stack_a = NULL;
 	if (ac == 1)
 		return (NULL);
 	else if ((parse_error(ac, av) == 1 || equal_number(ac, av) == 1) && ac != 2)
