@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davi <davi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: dmelo-ca <dmelo-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:55:53 by davi              #+#    #+#             */
-/*   Updated: 2024/11/05 20:59:03 by davi             ###   ########.fr       */
+/*   Updated: 2024/11/14 13:59:24 by dmelo-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	three_num(t_stack **stack)
 		else
 			stack_reverse_rotate(stack, RRA);
 	}
-	if (current->content > current->next->content)
+	if ((*stack)->content > (*stack)->next->content)
 		stack_swap(*stack, SWAP_A);
 }
 
